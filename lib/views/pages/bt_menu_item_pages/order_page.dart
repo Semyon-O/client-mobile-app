@@ -1,6 +1,7 @@
 import 'package:client_admin_panel/model/user_model.dart';
 import 'package:client_admin_panel/viewmodel/user_viewmodel.dart';
 import 'package:client_admin_panel/views/pages/info_pages/info_feedback_page.dart';
+import 'package:client_admin_panel/views/pages/info_pages/order_history_info_page.dart';
 import 'package:client_admin_panel/views/pages/info_pages/order_info_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -69,33 +70,42 @@ class _OrderPageState extends State<OrderPage> {
                           Expanded(
                             child: Padding(
                               padding: const EdgeInsets.all(8),
-                              child: Container(
-                                height: 160,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(8),
-                                    color: Colors.white,
-                                    boxShadow: [
-                                      BoxShadow(
-                                          color: Colors.grey,
-                                          offset: Offset(0, 2),
-                                          blurRadius: 4.0,
-                                          spreadRadius: 2.0
-                                      ),
-                                    ],
-                                ),
-                                child: Column(
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.all(16.0),
-                                      child: SvgPicture.asset(
-                                        "assets/icons/history_orders.svg",
-                                        semanticsLabel: 'history',
-                                        height: 80,
-                                        width: 80,
-                                      ),
+                              child: GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                      builder: (context) => ListHistoryOrdersPage(),
                                     ),
-                                    Text("История заявок")
-                                  ],
+                                  );
+                                },
+                                child: Container(
+                                  height: 160,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(8),
+                                      color: Colors.white,
+                                      boxShadow: [
+                                        BoxShadow(
+                                            color: Colors.grey,
+                                            offset: Offset(0, 2),
+                                            blurRadius: 4.0,
+                                            spreadRadius: 2.0
+                                        ),
+                                      ],
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.all(16.0),
+                                        child: SvgPicture.asset(
+                                          "assets/icons/history_orders.svg",
+                                          semanticsLabel: 'history',
+                                          height: 80,
+                                          width: 80,
+                                        ),
+                                      ),
+                                      Text("История заявок")
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
@@ -150,31 +160,6 @@ class _OrderPageState extends State<OrderPage> {
                         padding: const EdgeInsets.only(top: 12, bottom: 12),
                         child: Row(
                           children: [
-                            Expanded(
-                              child: GestureDetector(
-                                onTap: () {
-                                },
-                                child: Padding(
-                                  padding: const EdgeInsets.all(12.0),
-                                  child: Container(
-                                    height: 160,
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(8),
-                                        color: Colors.white,
-                                        boxShadow: [
-                                          BoxShadow(
-                                              color: Colors.grey,
-                                              offset: Offset(0, 2),
-                                              blurRadius: 4.0,
-                                              spreadRadius: 2.0
-                                          ),
-                                        ]
-                                    ),
-                                    child: Text("Запланированный список заявок клиентов"),
-                                  ),
-                                ),
-                              ),
-                            ),
                             Expanded(
                               child: GestureDetector(
                                 onTap: () {

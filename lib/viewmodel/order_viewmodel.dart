@@ -9,7 +9,9 @@ import 'package:http/http.dart' as http;
 class OrderViewModel extends ChangeNotifier {
 
   List<Order> _listOrders = [];
+  List<Order> _historyListOrders = [];
   List<Order> get listOrders => _listOrders;
+  List<Order> get historyListOrders => _historyListOrders;
 
   bool _isLoadingData = false;
   bool get isLoadingData => _isLoadingData;
@@ -101,6 +103,33 @@ class OrderViewModel extends ChangeNotifier {
       print("[ERROR]: ${e}");
     }
 
+  }
+
+  Future<void> fetchHistoryOrders(User user) async {
+    _isLoadingData = true;
+    notifyListeners();
+
+    try {
+      final response = await http.get(
+          Uri.parse('${ApiSettings.url}/orders/?order_status=4'),
+          headers: {
+            "Authorization": user.token,
+          }
+      );
+
+      if (response.statusCode == 200) {
+        String responseBody = utf8.decode(response.bodyBytes);
+        List<dynamic> responseData = json.decode(responseBody);
+        _historyListOrders = responseData.map((json) => Order.fromJson(json)).toList();
+      } else {
+        print('Ошибка: ${response.statusCode}');
+      }
+    } catch (e) {
+      print("[STORE ERROR]: ${e}");
+    }
+
+    _isLoadingData = false;
+    notifyListeners();
   }
 
 }
