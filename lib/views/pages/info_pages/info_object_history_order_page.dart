@@ -2,6 +2,7 @@ import 'package:client_admin_panel/model/order_model.dart';
 import 'package:client_admin_panel/viewmodel/order_viewmodel.dart';
 import 'package:client_admin_panel/viewmodel/type_service_viewmodel.dart';
 import 'package:client_admin_panel/viewmodel/user_viewmodel.dart';
+import 'package:client_admin_panel/views/pages/edit_pages/create_new_feedback.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -136,15 +137,23 @@ class _HistoryOrderPageState extends State<HistoryOrderPage> {
                         child: Container(
                           height: 48,
                           child: TextButton(
-                            onPressed: () {  },
+                            onPressed: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => ReviewPage(id_order: widget.order.id,),
+                                ),
+                              );
+                            },
                             child: Text("Оставить отзыв", style: TextStyle(
-                                color: Colors.white
+                                color: Color.fromRGBO(5, 96, 250, 1)
                             ),),
-                            style:TextButton.styleFrom(
-                                backgroundColor: Color.fromRGBO(
-                                    5, 250, 29, 1.0),
+                            style: TextButton.styleFrom(
+                                backgroundColor: Colors.white,
                                 shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(8)
+                                  borderRadius: BorderRadius.circular(8),
+                                  side: BorderSide(
+                                    color: Color.fromRGBO(5, 96, 250, 1)
+                                  ),
                                 )
                             ),
                           ),

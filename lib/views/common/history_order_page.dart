@@ -30,49 +30,49 @@ class HistoryOrderCard extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  const Text("Order ID:"),
+                  const Text("Заявка №:"),
                   Expanded(child: Text("${order.id}", textAlign: TextAlign.end)),
                 ],
               ),
               Row(
                 children: [
-                  const Text("Equipment Name:"),
+                  const Text("Наименование оборуд.:"),
                   Expanded(child: Text("${order.clientEquipment.name}", textAlign: TextAlign.end)),
                 ],
               ),
               Row(
                 children: [
-                  const Text("Type:"),
+                  const Text("Тип оборуд.:"),
                   Expanded(child: Text("${order.clientEquipment.typeEquipment}", textAlign: TextAlign.end)),
                 ],
               ),
               Row(
                 children: [
-                  const Text("Service Type:"),
+                  const Text("Тип услуги:"),
                   Expanded(child: Text("${order.typeService.name}", textAlign: TextAlign.end)),
                 ],
               ),
               Row(
                 children: [
-                  const Text("Order Status:"),
+                  const Text("Статус заявки::"),
                   Expanded(child: Text("${order.orderStatus?.name}", textAlign: TextAlign.end)),
                 ],
               ),
               Row(
                 children: [
-                  const Text("Worker:"),
+                  const Text("ФИО мастера:"),
                   Expanded(child: Text("${order.worker?.firstName} ${order.worker?.lastName}", textAlign: TextAlign.end)),
                 ],
               ),
               Row(
                 children: [
-                  const Text("Worker Phone:"),
+                  const Text("Телефон мастера:"),
                   Expanded(child: Text("${order.worker?.phone}", textAlign: TextAlign.end)),
                 ],
               ),
               Row(
                 children: [
-                  Text("Date of Order:"),
+                  Text("Дата исполнения:"),
                   Expanded(child: Text("${order.dateOrder}", textAlign: TextAlign.end)),
                 ],
               ),

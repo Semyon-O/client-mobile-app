@@ -6,6 +6,14 @@ import 'dart:convert';
 import 'package:client_admin_panel/settings.dart';
 
 
+class FeedbackException implements Exception {
+  final String message;
+  FeedbackException(this.message);
+
+  @override
+  String toString() => message;
+}
+
 class FeedbackViewModel extends ChangeNotifier {
 
 
@@ -43,8 +51,37 @@ class FeedbackViewModel extends ChangeNotifier {
 
   }
 
-  Future<void> createNewFeedback(int order) async {
+  Future<void> createNewFeedback(User? user, int order, String? feedbackDescription, int score) async {
+    _isLoadingData = true;
+    notifyListeners();
 
+    try {
+      final response = await http.post(
+        Uri.parse('${ApiSettings.url}/orders/${ApiSettings.feedbackDomain}/'),
+        headers: {
+          "Authorization": user!.token,
+        },
+        body: {
+          "FeedbackDescription": feedbackDescription,
+          "order": order.toString(),
+          "Score": score.toString(),
+        }
+      );
+
+      if (response.statusCode == 412) {
+        throw FeedbackException('Ошибка: Невозможно отправить отзыв. Отзыв уже существует.');
+      }
+    }
+    catch (e) {
+      print(e);
+      if (e is! FeedbackException) {
+        throw FeedbackException('Ошибка: ${e.toString()}');
+      }
+      rethrow;
+    } finally {
+      _isLoadingData = false;
+      notifyListeners();
+    }
   }
 
 }

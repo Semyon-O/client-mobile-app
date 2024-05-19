@@ -29,49 +29,49 @@ class OrderCard extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  const Text("Order ID:"),
+                  const Text("Заявка №:"),
                   Expanded(child: Text("${order.id}", textAlign: TextAlign.end)),
                 ],
               ),
               Row(
                 children: [
-                  const Text("Equipment Name:"),
+                  const Text("Наименование оборуд.:"),
                   Expanded(child: Text("${order.clientEquipment.name}", textAlign: TextAlign.end)),
                 ],
               ),
               Row(
                 children: [
-                  const Text("Type:"),
+                  const Text("Тип:"),
                   Expanded(child: Text("${order.clientEquipment.typeEquipment}", textAlign: TextAlign.end)),
                 ],
               ),
               Row(
                 children: [
-                  const Text("Service Type:"),
+                  const Text("Тип услуги:"),
                   Expanded(child: Text("${order.typeService.name}", textAlign: TextAlign.end)),
                 ],
               ),
               Row(
                 children: [
-                  const Text("Order Status:"),
+                  const Text("Статус заявки:"),
                   Expanded(child: Text("${order.orderStatus?.name}", textAlign: TextAlign.end)),
                 ],
               ),
               Row(
                 children: [
-                  const Text("Worker:"),
-                  Expanded(child: Text("${order.worker?.firstName} ${order.worker?.lastName}", textAlign: TextAlign.end)),
+                  const Text("ФИО мастера:"),
+                  Expanded(child: Text("${order.worker?.firstName != null ? order.worker?.firstName : "Уточняется"} ${order.worker?.lastName != null ? order.worker?.lastName : ""}", textAlign: TextAlign.end)),
                 ],
               ),
               Row(
                 children: [
-                  const Text("Worker Phone:"),
-                  Expanded(child: Text("${order.worker?.phone}", textAlign: TextAlign.end)),
+                  const Text("Телефон мастера:"),
+                  Expanded(child: Text("${order.worker?.phone != null ? order.worker?.phone : "Уточняется"} ", textAlign: TextAlign.end)),
                 ],
               ),
               Row(
                 children: [
-                  Text("Date of Order:"),
+                  Text("Дата исполнения:"),
                   Expanded(child: Text("${order.dateOrder}", textAlign: TextAlign.end)),
                 ],
               ),

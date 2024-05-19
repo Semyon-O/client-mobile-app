@@ -29,19 +29,19 @@ class EquipmentCard extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  const Text("Equipment Name:"),
+                  const Text("Наименование оборуд.:"),
                   Expanded(child: Text(equipment.name, textAlign: TextAlign.end)),
                 ],
               ),
               Row(
                 children: [
-                  const Text("Type:"),
+                  const Text("Тип:"),
                   Expanded(child: Text(equipment.typeEquipment.type, textAlign: TextAlign.end)),
                 ],
               ),
               Row(
                 children: [
-                  const Text("Company:"),
+                  const Text("Компания:"),
                   Expanded(child: Text(equipment.company, textAlign: TextAlign.end)),
                 ],
               ),

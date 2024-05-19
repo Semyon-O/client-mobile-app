@@ -38,7 +38,7 @@ class _LogInPageState extends State<LogInPage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Text("Welcome Back", style: TextStyle(
+                        Text("Добро пожаловать", style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.w500,
                           fontFamily: "Roboto",
@@ -49,7 +49,7 @@ class _LogInPageState extends State<LogInPage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Text("Fill in your username and password to continue",
+                        Text("Напишите пожалуйста ваш логин",
                           softWrap: false, // TODO: Сделать перенос текста
                           maxLines: 4,
                           style: TextStyle(
@@ -70,7 +70,7 @@ class _LogInPageState extends State<LogInPage> {
                         children: [
                           Expanded(
                             child: Container(
-                              child: Text("Username", style: TextStyle(
+                              child: Text("Логин", style: TextStyle(
                                 fontFamily: "Roboto",
                                 fontWeight: FontWeight.w500,
                                 fontSize: 14,
@@ -88,7 +88,7 @@ class _LogInPageState extends State<LogInPage> {
                             child: TextFormField(
                               controller: _usernameController,
                               decoration: InputDecoration(
-                                hintText: "Enter your username",
+                                hintText: "Ваш логин",
                                 border: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: Color.fromRGBO(167, 167, 167, 1),
@@ -111,7 +111,7 @@ class _LogInPageState extends State<LogInPage> {
                         children: [
                           Expanded(
                             child: Container(
-                              child: Text("Password", style: TextStyle(
+                              child: Text("Ваш пароль входа", style: TextStyle(
                                   fontFamily: "Roboto",
                                   fontWeight: FontWeight.w500,
                                   fontSize: 14,
@@ -152,7 +152,7 @@ class _LogInPageState extends State<LogInPage> {
                       child: InkWell(
                         onTap: () {},
                         child: Text(
-                          "Forgot Password?",
+                          "Забыли пароль?",
                           style: TextStyle(
                             color: Color.fromRGBO(5, 96, 250, 1),
                             fontFamily: "Roboto",
@@ -207,7 +207,7 @@ class _LogInPageState extends State<LogInPage> {
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                         child: Text(
-                          'Already have an account?',
+                          'Впервые в нашем приложении',
                           textAlign: TextAlign.start,
                         ),
                       ),
@@ -215,7 +215,7 @@ class _LogInPageState extends State<LogInPage> {
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                       child: Text(
-                        'Sign Up', // TODO: Сделать inkWel
+                        'Зарестрироваться', // TODO: Сделать inkWel
                       ),
                     ),
                   ],
